@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Source Code') {
             steps {
-                git url: 'https://github.com/GitPracticeRepo/spring-petclinic.git', 
+                git url: 'https://github.com/saisatyateja/spring-petclinic-1.git', 
                 branch: 'main'
             }
             
@@ -18,9 +18,9 @@ pipeline {
             steps {
                 rtMavenDeployer (
                     id: 'spc-deployer',
-                    serverId: 'JFROG_INSTANCE',
-                    releaseRepo: 'qtecomm-libs-release-local',
-                    snapshotRepo: 'qtecomm-libs-snapshot-local',
+                    serverId: 'my_jfrog',
+                    releaseRepo: 'spring_petclinic-libs-release-local',
+                    snapshotRepo: 'spring_petclinic-libs-snapshot-local',
                     
                 )
             }
